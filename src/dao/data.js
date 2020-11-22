@@ -24,21 +24,22 @@ var optionSchema = new Schema({
     }
 });
 
-var userSchema = new Schema({
+// var userSchema = new Schema({
 
-    username : {
-        type: String,
-        require : true,
-    },
+//     username : {
+//         type: String,
+//         require : true,
+//     },
 
-    password : {
-        type : String
-    }
-})
+//     password : {
+//         type : String
+//     }
+// })
 
 
 // 3. 生成模型并导出 
 // exports.optionSchemaModal = mongoose.model("Data", optionSchema);
-const toDolistSchemaModal = mongoose.model("Options", optionSchema);
-const userSchemaModal = mongoose.model("Users", userSchema);
-module.exports = { toDolistSchemaModal ,userSchemaModal }
+// const toDolistSchemaModal = mongoose.model("Options", optionSchema);
+// const userSchemaModal = mongoose.model("Users", userSchema);
+// module.exports = { toDolistSchemaModal ,userSchemaModal }
+exports.toDoListSchemaModal = mongoose.model("toDoListSchemaModal", optionSchema);

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var { findAll, addNewList } = require('../service/toDoListService');
-var { userSchemaModal, toDolistSchemaModal}  = require('../dao/data')
+
 
 const pathToDoList = '/list';
 const pathUser = '/user';
@@ -14,6 +14,8 @@ const getAllToDoListApi = (pathToDoList) => {
     });
 }
 
+getAllToDoListApi(pathToDoList);
+
 
 router.post(pathToDoList, (req,res) => {
     addNewList(req,res);
@@ -22,21 +24,19 @@ router.post(pathToDoList, (req,res) => {
 
 
 /*  userController  */
-router.post(pathUser,(req,res) => {
+// router.post(pathUser,(req,res) => {
 
-    // 新增一个数据
-    let newUser = new userSchemaModal(req.body);
-    // 保存
-    newUser.save((err,ret) => {
-        if(err) {
-            res.send('保存失败');
-        } else {
-            res.send(ret);
-        }
-    })
-})
-
-
+//     // 新增一个数据
+//     let newUser = new userSchemaModal(req.body);
+//     // 保存
+//     newUser.save((err,ret) => {
+//         if(err) {
+//             res.send('保存失败');
+//         } else {
+//             res.send(ret);
+//         }
+//     })
+// })
 
 
 

@@ -1,8 +1,8 @@
-var { userSchemaModal, toDolistSchemaModal } = require('../dao/data')
+var { toDoListSchemaModal } = require('../dao/data')
 
 const findAll = (res) => {
 
-    toDolistSchemaModal.find((err, ret) => {
+    toDoListSchemaModal.find((err, ret) => {
         if (err) {
             throw new Error('failed to get data')
         } else {
@@ -13,16 +13,15 @@ const findAll = (res) => {
 
 
 const addNewList = (req,res) => {
-    let newlist = new toDolistSchemaModal(req.body);
+    let newlist = new toDoListSchemaModal(req.body);
     newlist.save((err,ret) => {
         if(err) {
             throw new Error('保存失败');
         } else {
-            res.send(ret + '保存成功')
+            res.send(ret + '')
         }
     })
 }
 
-
-
-module.exports = { findAll, addNewList}
+exports.findAll = findAll;
+exports.addNewList = addNewList;
