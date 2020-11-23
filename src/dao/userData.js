@@ -5,33 +5,24 @@ mongoose.connect('mongodb://localhost:27017/todolistdb', { useNewUrlParser: true
 // 2. 创建结构
 var Schema = mongoose.Schema;
 
-var optionSchema = new Schema({
 
-    title: {
-        type: String,
-        require: true,
-    },
 
-    state: {
-        type: Boolean,
-        require: true,
-        default: true
-    },
+var userSchema = new Schema({
 
     username: {
         type: String,
-        require: true
-    }
-});
+        require: true,
+    },
 
+    password: {
+        type: String
+    }
+})
 
 
 // 3. 生成模型并导出 
 // exports.optionSchemaModal = mongoose.model("Data", optionSchema);
-const toDoListSchemaModal = mongoose.model("ToDoListSchemaModal", optionSchema);
+const userSchemaModal = mongoose.model("Options", userSchema);
 // const userSchemaModal = mongoose.model("Users", userSchema);
-// module.exports = { toDoListSchemaModal }
+module.exports = { userSchemaModal }
 // exports.toDoListSchemaModal = mongoose.model("toDoListSchemaModal", optionSchema);
-
-
-exports.toDoListSchemaModal = toDoListSchemaModal;
